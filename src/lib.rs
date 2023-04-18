@@ -9,6 +9,18 @@ extern "C" {
 }
 
 #[wasm_bindgen]
-pub fn say_hello_from_rust () {
-    log("how you doing from rust");
+pub struct DougsClient{}
+
+#[wasm_bindgen]
+impl DougsClient {
+    #[wasm_bindgen(constructor)]
+    pub fn new() -> Self {
+      Self {}
+    }
+
+    pub fn update(&mut self, _time: f32, _height: f32, _width: f32) -> Result<(), JsValue> {
+      Ok(())
+    }
+
+    pub fn render(&self) {}
 }
